@@ -8,14 +8,23 @@ The rpc_client module allows users to make remote procedure calls to the rpc_ser
 
 The socket_client module is a basic implementation of a socket-based client. It provides a way to establish a connection with the rpc_client and exchange messages. The socket_client can send messages to the rpc_client and receive responses.
 
+Also the project contains a simple implementation of a Theater Reservation System utilizing Java's Remote Method Invocation (RMI) feature. The system consists of a server and a client, enabling remote interaction for booking and cancelling seats in a theater.
+
 ## Prerequisites
 To use the files in this repository, you will need the following:
+
+RPC:
 - [GCC](https://gcc.gnu.org/)
 - [Make](https://man7.org/linux/man-pages/man1/make.1.html)
 - [RPCBind](https://man7.org/linux/man-pages/man8/rpcbind.8.html)
 
+Java RMI:
+- [Java](https://openjdk.org/)
+
 ## Getting Started
 To get started with this project, follow these steps:
+
+For the RPC:
 1. Clone this repository to your local machine.
 2. Run the make command.
     ```
@@ -33,6 +42,24 @@ To get started with this project, follow these steps:
     ```
     sudo ./rpc_client localhost 65001
     ```
+For Java RMI:
+1. Clone this repository to your local machine.
+2. Compile.
+    ```
+    javac *.java
+    ```
+3. Run the server.
+    ```
+    java THServer
+    ```
+5. Run the client with one of the following options.
+    ```
+    java gr.uniwa.TΗClient
+    java gr.uniwa.TΗClient list <hostname>
+    java gr.uniwa.TΗClient book <hostname> <type> <number> <name>
+    java gr.uniwa.TΗClient guests <hostname>
+    java gr.uniwa.TΗClient cancel <hostname> <type> <number> <name>
+    ```
     
 ## Contents
 This repository contains the following files: 
@@ -45,6 +72,10 @@ This repository contains the following files:
 7. rpc_svc.c
 8. rpc_xdr.c
 9. socket_client.c
+10. THServer.java
+11. THClient.java
+12. THImpl.java
+13. THInterface.java
 
 ## Contributing
 
